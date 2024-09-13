@@ -1,0 +1,21 @@
+<%- include ('partials/navbar.ejs') %>
+<%- include ('partials/header.ejs') %>
+
+    <h1>Conheça nossos produtos: </h1>
+    <!-- Sempre que for preciso colocar uma tag do jv no html tem que fazer isso<% %>-->
+    <!--TAGS EJS chamando a variável que veio do index.js-->
+    <%= produto %>
+
+    <!-- Condição para verificar se o produto não foi passado-->
+     <% if (!produto){ %> <!-- (!) significa não, ou seja, nesse caso ta falando se o produto não existir...-->
+        <p><%= listaProdutos %></p>
+     <% } %>
+
+        <!-- forEach para percorrer a lista de produto-->
+        <% if(!produto) { %>
+        <% listaProdutos.forEach((produto) => { %>
+            <p><a href="/produtos/<%= produto %>"><%= produto %></a></p>   
+       <% })%>
+       <% } %>
+
+       <%- include ('partials/footer.ejs') %>
