@@ -5,7 +5,7 @@ import Pedido from "../models/Pedido.js";
 // ROTA PEDIDOS
 router.get("/pedidos", function (req, res) {
   Pedido.findAll().then((pedidos) => {
-    res.render("/pedidos", {
+    res.render("pedidos", {
       pedidos: pedidos,
     });
   });
@@ -22,7 +22,7 @@ router.post("/pedidos/new", (req, res) => {
   });
 });
 
-router.get("pedidos/delete/:id", (req, res) => {
+router.get("/pedidos/delete/:id", (req, res) => {
   const id = req.params.id;
   Pedido.destroy({
     where: {
